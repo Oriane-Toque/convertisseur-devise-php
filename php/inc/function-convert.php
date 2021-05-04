@@ -1,13 +1,5 @@
 <?php
 
-function checkForm($amount) {
-
-  if(!empty($amount) && is_int($amount) && $amount >= 0) {
-    return true;
-  }
-  return false;
-}
-
 function amountToConverted($dev_ent, $dev_sort, $amount) {
 
   include 'data/data-devises.php';
@@ -28,39 +20,39 @@ function amountToConverted($dev_ent, $dev_sort, $amount) {
   elseif($dev_ent === 'dollar') {
     switch($dev_sort) {
       case 'euro':
-        return $amount * $euro_devises['euro'];
+        return $amount * $dollar_devises['euro'];
         break;
       case 'livre':
-        return $amount * $euro_devises['livre'];
+        return $amount * $dollar_devises['livre'];
         break;
       case 'peso':
-        return $amount * $euro_devises['peso'];
+        return $amount * $dollar_devises['peso'];
         break; 
     }
   }
   elseif($dev_ent === 'livre') {
     switch($dev_sort) {
       case 'euro':
-        return $amount * $euro_devises['euro'];
+        return $amount * $livre_devises['euro'];
         break;
       case 'dollar':
-        return $amount * $euro_devises['dollar'];
+        return $amount * $livre_devises['dollar'];
         break;
       case 'peso':
-        return $amount * $euro_devises['peso'];
+        return $amount * $livre_devises['peso'];
         break; 
     }
   }
   elseif($dev_ent === 'peso') {
     switch($dev_sort) {
       case 'euro':
-        return $amount * $euro_devises['euro'];
+        return $amount * $peso_devises['euro'];
         break;
       case 'livre':
-        return $amount * $euro_devises['livre'];
+        return $amount * $peso_devises['livre'];
         break;
       case 'dollar':
-        return $amount * $euro_devises['dollar'];
+        return $amount * $peso_devises['dollar'];
         break; 
     }
   }
